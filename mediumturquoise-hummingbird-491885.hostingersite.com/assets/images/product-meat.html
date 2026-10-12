@@ -1,0 +1,3881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世宗高科技 | 专业食品机械 ODM 合作伙伴 始创2003</title>
+    <!-- Favicon 韩国世宗高科技官方图标 -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        /* ==========================================
+           1:1 BETTER.CN OFFICIAL CLONE CSS TOKENS
+           ========================================== */
+        :root {
+            --better-red: #C8161D;         /* BETTER 越好官方标志鲜红 */
+            --better-red-dark: #A50E14;
+            --better-black: #141414;       /* 官方 Header / Footer 炭黑 */
+            --better-dark-card: #1C1C1C;
+            --better-grey-bg: #F4F4F5;     /* 展厅浅灰 */
+            --text-white: #FFFFFF;
+            --text-dark: #141414;
+            --text-muted: #71717A;
+            --font-main: "Noto Sans SC", -apple-system, system-ui, sans-serif;
+            --font-logo: 'Cinzel', 'Noto Sans SC', serif;
+            --container-width: 1400px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            font-family: var(--font-main);
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ==========================================
+           1:1 BETTER HEADER WITH SPREAD/SPACED NAV
+           ========================================== */
+        .header {
+            height: 80px;
+            background-color: var(--better-black);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding-right: 48px;
+        }
+
+        /* 1:1 比对：BETTER 标志性的左侧全高红块 Logo */
+        .logo-red-block {
+            background-color: var(--better-red);
+            height: 80px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 0 16px rgba(200, 22, 29, 0.3);
+            flex-shrink: 0;
+        }
+
+        .logo-red-block img {
+            max-height: 38px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 顶部菜单栏间距加大至 62px，整体在 Header 内部完美水平居中 */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            list-style: none;
+            flex-grow: 1;
+            margin: 0 24px;
+        }
+
+        .nav-item-has-mega {
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item-has-dropdown {
+            position: relative;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 解决 Hover 闪退核心：无缝透明桥接通道 (Invisible Bridge) */
+        .mega-menu::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: transparent;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: transparent;
+        }
+        /* 100% 全屏幕宽度贯穿 Mega Menu (脱离父级 li 定位影响，铺满整个屏幕) */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100vw;
+            background-color: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 2px solid var(--better-red);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.85);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 190px;
+            background-color: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--better-red);
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+            padding: 8px 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        .nav-item-has-mega:hover .mega-menu,
+        .nav-item-has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        /* 内部集中在与下段一模一样的 1400px container 居中容器中 */
+        .mega-menu-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px;
+            box-sizing: border-box;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.92rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(200, 22, 29, 0.15);
+            color: #FFFFFF;
+            padding-left: 24px;
+        }
+
+        .dropdown-menu i {
+            color: var(--better-red);
+            font-size: 0.85rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        .nav-item {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        /* 全新“产品中心”两级联动 Tabbed Mega Dropdown 样式 */
+        .mega-tabbed-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            padding: 32px 0 36px;
+            align-items: stretch;
+        }
+
+        .mega-tab-sidebar {
+            width: 310px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 28px;
+        }
+
+        .mega-tab-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 1.02rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+        }
+
+        .mega-tab-item .tab-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mega-tab-item i.tab-icon {
+            color: var(--better-red);
+            font-size: 1.15rem;
+            width: 22px;
+            text-align: center;
+        }
+
+        .mega-tab-item i.arrow-icon {
+            font-size: 0.85rem;
+            opacity: 0.4;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .mega-tab-item:hover,
+        .mega-tab-item.active {
+            color: #FFFFFF;
+            background: rgba(200, 22, 29, 0.18);
+            border-color: rgba(200, 22, 29, 0.45);
+        }
+
+        .mega-tab-item:hover i.arrow-icon,
+        .mega-tab-item.active i.arrow-icon {
+            opacity: 1;
+            transform: translateX(4px);
+            color: var(--better-red);
+        }
+
+        .mega-tab-panels {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .mega-panel-content {
+            display: none;
+            animation: megaFadeIn 0.3s ease forwards;
+        }
+
+        .mega-panel-content.active {
+            display: block;
+        }
+
+        @keyframes megaFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: var(--better-red);
+        }
+
+        .nav-item i {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item-has-mega:hover .nav-item i {
+            transform: rotate(180deg);
+            color: var(--better-red);
+        }
+
+        .nav-item-has-mega > .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 结合万家乐 (全宽暗色高奢) + 德玛仕 (左右两列产品卡片) Mega Menu 下拉大框 */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(12px);
+            width: 100vw;
+            background-color: rgba(18, 18, 18, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 2px solid var(--better-red);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        .nav-item-has-mega:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .mega-menu-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .mega-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .mega-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.02em;
+        }
+
+        .mega-more {
+            font-size: 0.88rem;
+            color: var(--better-red);
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.2s ease;
+        }
+
+        .mega-more:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* 德玛仕同款：左右两列网格布局 */
+        .mega-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .mega-product-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+
+        .mega-product-item:hover {
+            background: rgba(200, 22, 29, 0.12);
+            border-color: var(--better-red);
+            transform: translateX(6px);
+        }
+
+        /* 4 国国旗语言栏 (4国像素 100% 统一等大 24px x 16px，取消 scale 变形) */
+        .header-flags-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .flag-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .flag-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0%);
+            opacity: 1;
+            transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .flag-item.active,
+        .flag-item:hover {
+            border-color: var(--better-red);
+            box-shadow: 0 0 8px rgba(200, 22, 29, 0.5);
+            transform: scale(1.15);
+        }
+
+        .flag-item.active img,
+        .flag-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: none !important;
+        }
+
+        .mega-product-item img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            background-color: #FFFFFF;
+            padding: 4px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .mega-prod-name {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .mega-prod-desc {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 1:1 抓取原版 sejonght.com 右上角 4 国国旗语言栏 */
+        .header-flags-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .flag-item {
+            display: inline-block;
+            width: 32px;
+            height: 22px;
+            box-sizing: border-box;
+            border: 1px solid #333333;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+            transition: all 0.25s ease;
+            background-color: #FFFFFF;
+        }
+
+        .flag-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%);
+            opacity: 0.55;
+            transition: all 0.25s ease;
+        }
+
+        .flag-item.active, .flag-item:hover {
+            transform: translateY(-2px) scale(1.1);
+            border-color: var(--better-red);
+            box-shadow: 0 4px 12px rgba(200, 22, 29, 0.5);
+        }
+
+        .flag-item.active img, .flag-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* ==========================================
+           HERO SWIPER SECTION (视频 + 2张图片轮播)
+           ========================================== */
+        .hero-section {
+            height: calc(100vh - 80px);
+            min-height: 620px;
+            position: relative;
+            background-color: var(--better-black);
+            overflow: hidden;
+        }
+
+        .hero-swiper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* 1:1 对齐 Winterhalter 德系高奢贝塞尔缓动曲线 (easeOutQuart/Quint 磁悬浮平滑停靠) */
+        .hero-swiper .swiper-wrapper {
+            transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+
+        .hero-slide {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--better-black);
+            transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+
+        .hero-bg-video, .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(1);
+        }
+
+        /* 适度加深平衡的 Hero 遮罩 */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            padding-bottom: 90px; /* 文字整体向上提 */
+            box-sizing: border-box;
+        }
+
+        /* 关键修复：确保 Hero 内部的 container 宽度 100% 并与下方的 split-section 的 container 左对齐线像素级对齐 */
+        .hero-overlay .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 32px;
+            box-sizing: border-box;
+        }
+
+        .hero-left-box {
+            max-width: 960px; /* 从 720px 扩大至 960px，避免单字掉落换行 */
+            color: #FFFFFF;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .hero-title-main {
+            font-size: clamp(2.5rem, 4.2vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            text-shadow: none;
+        }
+
+        .hero-title-main .red-text {
+            display: inline-block;
+            color: var(--better-red);
+            font-weight: 900;
+            font-size: calc(1.12em + 10px); /* 下方红色字体独立再放大 10 像素 */
+            margin-top: 8px;
+        }
+
+        .hero-company-en {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.65);
+            letter-spacing: 0.08em;
+            margin-top: 48px;
+            text-transform: uppercase;
+        }
+
+        .logo-red-block {
+            background-color: var(--better-red);
+            height: 80px;
+            padding: 0 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 0 16px rgba(200, 22, 29, 0.3);
+            flex-shrink: 0;
+        }
+
+        .logo-red-block img {
+            height: 32px !important;
+            max-height: 32px !important;
+            width: auto !important;
+            max-width: 180px !important;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 1:1 BETTER 风格：Hero 下方公司介绍与大数字板块 */
+        .about-stats-section {
+            background-color: var(--better-black);
+            color: #FFFFFF;
+            padding: 90px 0 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .about-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--better-red);
+            padding: 10px 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 16px rgba(200, 22, 29, 0.35);
+            border-radius: 2px;
+            max-width: 280px;
+        }
+
+        .about-logo-img {
+            height: 32px !important;
+            max-height: 32px !important;
+            width: auto !important;
+            max-width: 220px !important;
+            display: block;
+            object-fit: contain;
+        }
+
+        .about-intro-text {
+            max-width: 1020px;
+            margin: 0 auto 60px;
+            font-size: 1.18rem;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 400;
+        }
+
+        .about-intro-title {
+            font-size: 1.7rem !important; /* 核心主标题等比放大至 1.7rem */
+            font-weight: 900 !important;
+            color: #FFFFFF !important;
+            margin-bottom: 24px !important;
+            letter-spacing: 0.5px;
+        }
+
+        .about-intro-mid {
+            font-size: 1.3rem !important; /* 中间段落等比放大至 1.3rem */
+            line-height: 1.8 !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+            margin-bottom: 20px !important;
+        }
+
+        .about-intro-sub {
+            font-size: 1.16rem !important; /* 底部说明段落等比放大至 1.16rem */
+            line-height: 1.85 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .about-intro-text p {
+            margin-bottom: 16px;
+        }
+
+        .about-intro-highlight {
+            color: var(--better-red);
+            font-weight: 700;
+        }
+
+        .stats-counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 36px;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-counter-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0 16px;
+        }
+
+        .stats-counter-item:last-child {
+            border-right: none;
+        }
+
+        .stats-counter-num {
+            font-size: clamp(3.2rem, 5vw, 4.6rem);
+            font-weight: 900;
+            color: var(--better-red);
+            line-height: 1;
+            margin-bottom: 12px;
+            font-family: "Outfit", "Noto Sans SC", sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.1em;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+
+        /* 美的/Apple 风格上下机械翻滚数字滚轴 */
+        .ticker-digit-wrap {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .ticker-col {
+            display: inline-block;
+            height: 1em;
+            overflow: hidden;
+            position: relative;
+            line-height: 1em;
+        }
+
+        .ticker-inner {
+            display: flex;
+            flex-direction: column;
+            transform: translateY(0%);
+            transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .ticker-inner span {
+            display: block;
+            height: 1em;
+            line-height: 1em;
+            text-align: center;
+        }
+
+        .ticker-symbol {
+            display: inline-block;
+            height: 1em;
+            line-height: 1em;
+        }
+
+        .stats-counter-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .stats-counter-sub {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.04em;
+        }
+
+        /* 左右极简细线尖括号箭头 (同步向上提升至 44%) */
+        .hero-arrow {
+            position: absolute;
+            top: 44%;
+            transform: translateY(-50%);
+            z-index: 100;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+
+        .hero-arrow:hover {
+            color: #FFFFFF;
+            transform: translateY(-50%) scale(1.25);
+        }
+
+        .hero-arrow-prev {
+            left: 36px;
+        }
+
+        .hero-arrow-next {
+            right: 84px; /* 紧贴右侧悬浮栏左侧 */
+        }
+
+        /* Swiper 分页器指示器样式 (显著向上上移 75px 离底) */
+        .hero-swiper .swiper-pagination {
+            bottom: 75px !important;
+            z-index: 25;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #FFFFFF;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--better-red);
+            opacity: 1;
+            width: 28px;
+            border-radius: 6px;
+        }
+
+        /* 右侧悬浮侧栏 */
+        .right-float-bar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: rgba(20, 20, 20, 0.92);
+            backdrop-filter: blur(8px);
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .float-item {
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .float-item:last-child {
+            border-bottom: none;
+        }
+
+        .float-item:hover {
+            background-color: var(--better-red);
+            color: #FFFFFF;
+        }
+
+        .float-item-lang {
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* ==========================================
+           CATEGORIES & PRODUCTS
+           ========================================== */
+        .split-section {
+            padding: 100px 0;
+            background-color: #FFFFFF;
+        }
+
+        .split-title-box {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .split-title-box h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--better-black);
+            margin-bottom: 12px;
+        }
+
+        .split-title-box p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+        }
+
+        .split-card {
+            position: relative;
+            height: 440px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--better-black);
+        }
+
+        .split-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+            filter: brightness(0.75);
+        }
+
+        .split-card:hover img {
+            transform: scale(1.06);
+            filter: brightness(0.85);
+        }
+
+        .split-card-overlay {
+            position: absolute;
+            inset: 0;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(0deg, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.2) 60%, rgba(20,20,20,0) 100%);
+            color: #FFFFFF;
+        }
+
+        .split-card-overlay h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .split-card-overlay p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .btn-better-red {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background-color: var(--better-red);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: fit-content;
+            transition: background 0.2s ease;
+        }
+
+        .btn-better-red:hover {
+            background-color: var(--better-red-dark);
+        }
+
+        /* DATA COUNTERS */
+        .data-strip {
+            background-color: var(--better-black);
+            color: #FFFFFF;
+            padding: 64px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .data-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0 16px;
+        }
+
+        .data-item:last-child {
+            border-right: none;
+        }
+
+        .data-num {
+            font-size: clamp(2.8rem, 4.5vw, 4rem);
+            font-weight: 900;
+            color: var(--better-red);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .data-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* EXHIBITION TABS */
+        .product-section {
+            padding: 100px 0;
+            background-color: var(--better-grey-bg);
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: 16px;
+            border-bottom: 2px solid #E4E7EC;
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+
+        /* 100vw 无缝无限滚动韩国客户 Logo 跑马灯通栏 */
+        .client-logos-marquee-section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: #0A0A0A;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px 0;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: marquee-scroll 140s linear infinite;
+        }
+
+        /* 鼠标放上去后立刻停止滚动 */
+        .client-logos-marquee-section:hover .marquee-track,
+        .marquee-track:hover {
+            animation-play-state: paused !important;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            padding: 0 8px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .marquee-item img {
+            max-height: 54px;
+            max-width: 170px;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(0.85);
+            opacity: 0.75;
+            transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .marquee-item:hover img {
+            filter: brightness(1) invert(0);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* 四大产业落地场景解决方案 (黑色背景 + 浅色高奢文字 + 0边框0圆角) */
+        .industry-solutions-section {
+            padding: 50px 0 100px 0; /* 减小上方间距 50 像素 */
+            background-color: var(--better-black);
+            color: #FFFFFF;
+        }
+
+        .solution-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px 48px;
+            margin-top: 56px;
+        }
+
+        .solution-scene-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .solution-img-box {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 0;
+            background-color: #1A1A1A;
+            position: relative;
+        }
+
+        .solution-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+        }
+
+        .solution-scene-card:hover .solution-img-box img {
+            opacity: 0.95;
+            transform: scale(1.3);
+        }
+
+        .solution-info-box {
+            padding: 24px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .solution-main-title {
+            font-size: 1.55rem;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            transition: color 0.25s ease;
+        }
+
+        .solution-scene-card:hover .solution-main-title {
+            color: var(--better-red);
+        }
+
+        .solution-sub-desc {
+            font-size: 1.08rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.65;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--better-black);
+            border-bottom-color: var(--better-red);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-row-item {
+            display: grid;
+            grid-template-columns: 240px 1fr 220px;
+            gap: 32px;
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid #E4E7EC;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.25s ease;
+        }
+
+        .product-row-item:hover {
+            border-color: var(--better-red);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+        }
+
+        .product-thumb {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background-color: #FFFFFF;
+        }
+
+        .product-thumb img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .product-info h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--better-black);
+            margin-bottom: 6px;
+        }
+
+        .product-info .sub-code {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--better-red);
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .product-specs {
+            border-left: 1px solid #E4E7EC;
+            padding-left: 24px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .product-specs div {
+            margin-bottom: 6px;
+        }
+
+        .product-specs strong {
+            color: var(--better-black);
+        }
+
+        /* QUALIFICATIONS */
+        .cert-section {
+            padding: 100px 0;
+            background-color: #FFFFFF;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .cert-card {
+            background-color: var(--better-grey-bg);
+            border: 1px solid #E4E7EC;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--better-red);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+
+        .cert-img-wrap {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+
+        .cert-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .cert-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--better-black);
+        }
+
+        /* =========================================================
+           1:1 司米 (SCHMIDT) 国际化高奢暗色风范 FOOTER 样式
+           ========================================================= */
+        .footer-schmidt-style {
+            background-color: #121417;
+            background-image: radial-gradient(circle at 50% 0%, rgba(200, 22, 29, 0.08) 0%, transparent 65%);
+            color: #9EA5B0;
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            z-index: 10;
+            padding-top: 60px; /* 增加 60px 上方内边距，远离上边线 */
+        }
+
+        .footer-schmidt-upper {
+            padding: 24px 0 50px; /* 缩减多余间距 */
+            display: grid;
+            grid-template-columns: 1.1fr 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 左侧列：服务热线与大号码 */
+        .footer-schmidt-col-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-brand-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand-logo-wrap img {
+            height: 38px;
+            width: auto;
+        }
+
+        .footer-hotline-label {
+            font-size: 0.82rem;
+            color: #6C7480;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .footer-phone-big {
+            font-family: var(--font-logo), 'Inter', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-phone-big:hover {
+            color: var(--better-red);
+        }
+
+        .footer-phone-sub {
+            font-size: 0.82rem;
+            color: #6C7480;
+        }
+
+        /* 中间列：品牌 Logo + 社交媒体 + 优雅圆圈 Icon 组 */
+        .footer-schmidt-col-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-left: 1px solid rgba(255, 255, 255, 0.06);
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-center-brand-name {
+            font-family: var(--font-logo);
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .footer-center-brand-name span {
+            color: var(--better-red);
+        }
+
+        .footer-social-label {
+            font-size: 0.82rem;
+            color: #6C7480;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-social-circle-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .social-circle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-circle-btn:hover {
+            background-color: var(--better-red);
+            border-color: var(--better-red);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(200, 22, 29, 0.4);
+        }
+
+        /* 右侧列：快捷入口与品质认证三色点 */
+        .footer-schmidt-col-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .footer-quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-quick-link-item {
+            color: #D1D5DB;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.25s ease;
+        }
+
+        .footer-quick-link-item:hover {
+            color: var(--better-red);
+        }
+
+        .footer-quality-badge-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #6C7480;
+        }
+
+        .flag-dots-group {
+            display: inline-flex;
+            gap: 4px;
+            margin-left: 4px;
+        }
+
+        .flag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* 底部深色 Copyright 版权区 */
+        .footer-schmidt-bottom {
+            background-color: #0D0F12;
+            padding: 28px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6C7480;
+            line-height: 1.8;
+        }
+
+        .footer-schmidt-bottom a {
+            color: #9EA5B0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-schmidt-bottom a:hover {
+            color: var(--better-red);
+        }
+
+        /* =========================================================
+           核心商用设备展厅 (暗黑高奢 + 2列左右结构 + 4列Swiper横向滑动)
+           ========================================================= */
+        /* 核心商用设备展厅 (大字号/高大Sidebar/3列2行6卡片 气派阵列) */
+        .showroom-section {
+            background-color: var(--better-black);
+            color: #FFFFFF;
+            padding: 90px 0;
+            position: relative;
+        }
+
+        .showroom-layout-2col {
+            display: flex;
+            gap: 36px;
+            margin-top: 45px;
+            align-items: stretch;
+        }
+
+        /* 左侧高大挺拔 6 大分类 Sidebar (字号加大、高度拉伸) */
+        .showroom-sidebar {
+            width: 320px;
+            flex-shrink: 0;
+            background-color: #1A1D20;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .showroom-tab-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 24px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            color: #E5E7EB;
+            font-size: 1.12rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
+            flex-grow: 1;
+        }
+
+        .showroom-tab-item:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+        }
+
+        .showroom-tab-item.active {
+            background-color: var(--better-red);
+            color: #FFFFFF;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(200, 22, 29, 0.45);
+        }
+
+        .showroom-tab-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .showroom-tab-icon {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* 右侧 3 列 2 行网格面板 (共 6 个大产品卡片) */
+        .showroom-panels {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .showroom-panel-content {
+            display: none;
+        }
+
+        .showroom-panel-content.active {
+            display: block;
+        }
+
+        .showroom-panel-header {
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .showroom-panel-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+        }
+
+        .showroom-grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* 产品卡片 (大尺寸无边框大气版) */
+        .showroom-product-card {
+            background-color: #1A1D20;
+            border-radius: 12px;
+            padding: 24px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .showroom-product-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(200, 22, 29, 0.5);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+        }
+
+        .showroom-img-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 230px;
+            margin-bottom: 26px; /* 增加图片与文字之间的上间距 */
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .showroom-img-link img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+        }
+
+        .showroom-product-card:hover .showroom-img-link img {
+            transform: scale(1.08);
+        }
+
+        .showroom-title-link {
+            font-size: 1.12rem; /* 加大产品标题字体 */
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: color 0.25s ease;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.8em; /* 像素级锁定两行高度齐平 */
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .showroom-product-card:hover .showroom-title-link,
+        .showroom-title-link:hover {
+            color: var(--better-red);
+        }
+
+        /* =========================================================
+           嵌入 Footer 内部的 70% 居中无线条大图标服务保障横条
+           ========================================================= */
+        .footer-service-bar {
+            width: 70%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer-service-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-service-item:hover .footer-service-icon {
+            border-color: var(--better-red);
+            color: var(--better-red);
+            box-shadow: 0 0 20px rgba(200, 22, 29, 0.5);
+        }
+
+        .footer-service-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-service-item:hover .footer-service-text {
+            color: var(--better-red);
+        }
+
+        /* =========================================================
+           新闻资讯与技术动态板块 (News & Press Section - 深色高奢 3列卡片)
+           ========================================================= */
+        .news-press-section {
+            background-color: var(--better-black);
+            color: #FFFFFF;
+            padding: 90px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+        }
+
+        .news-header-center {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .news-section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .news-section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .news-grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        /* 新闻资讯板块 - 0圆角 0边框 平铺极简版 */
+        .news-press-section {
+            background-color: var(--better-black);
+            color: #FFFFFF;
+            padding: 90px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+        }
+
+        .news-header-center {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .news-section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .news-section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .news-grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+
+        .news-card {
+            background-color: transparent;
+            border-radius: 0;
+            border: none;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: transform 0.35s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .news-img-wrap {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            border-radius: 0;
+            margin-bottom: 20px;
+        }
+
+        .news-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .news-card:hover .news-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .news-body {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-category-tag {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #9CA3AF;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .news-title-link {
+            font-size: 1.35rem; /* 大号醒目新闻标题 */
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: color 0.25s ease;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-card:hover .news-title-link,
+        .news-title-link:hover {
+            color: var(--better-red);
+        }
+
+        .news-btn-wrap {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .news-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 44px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .news-more-btn:hover {
+            background-color: var(--better-red);
+            border-color: var(--better-red);
+            box-shadow: 0 8px 24px rgba(200, 22, 29, 0.45);
+            transform: translateY(-2px);
+        }
+
+        /* Modal Overlay */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            max-width: 640px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            color: var(--better-black);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        /* 全局防止手机端水平溢出摇晃 */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .mobile-hamburger-btn {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu { gap: 32px; margin-left: 32px; }
+            .split-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .showroom-grid-3col { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+
+        .mobile-lang-drawer {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu { gap: 32px; margin-left: 32px; }
+            .split-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .showroom-grid-3col { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            /* 1. Header 与 Logo、汉堡菜单、隐藏 Header 内部国旗 */
+            .header {
+                height: 56px;
+                z-index: 999999 !important; /* 始终高于 nav 遮罩，确保汉堡按鈕可点击关闭 */
+                position: sticky !important;
+            }
+
+            .header-inner {
+                padding: 0 16px;
+                height: 56px;
+            }
+
+            .logo-red-block {
+                height: 56px;
+                padding: 0 14px;
+            }
+
+            .logo-red-block img {
+                height: 20px !important;
+            }
+
+            /* 手机端隐藏 Header 右侧内联国旗栏 */
+            .header-flags-wrap {
+                display: none !important;
+            }
+
+            .mobile-hamburger-btn {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 38px;
+                height: 38px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 6px;
+                color: #FFFFFF;
+                font-size: 1.15rem;
+                cursor: pointer;
+                flex-shrink: 0;
+                margin-left: auto;
+                position: relative;
+                z-index: 1000000; /* 层叠最高，常显常可点击 */
+                transition: background 0.2s, border-color 0.2s;
+            }
+
+            /* 菜单展开时汉堡按鈕变色提示可关闭 */
+            .mobile-hamburger-btn.is-open {
+                background: rgba(200, 22, 29, 0.15);
+                border-color: rgba(200, 22, 29, 0.5);
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            /* 高奢暗黑移动端抽屉菜单 */
+            .nav-menu.mobile-open {
+                display: flex !important;
+                flex-direction: column !important;
+                position: fixed !important;
+                top: 0 !important;          /* 从视口最顶部开始，内设内边距避开 header */
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: #0E0F12 !important;
+                z-index: 99998 !important;  /* 低于 header 的 999999 */
+                padding: 60px 24px 32px 24px !important; /* 顶部 60px 内边距避开 56px header */
+                margin: 0 !important;
+                gap: 0 !important;
+                overflow-y: auto !important;
+                align-items: stretch !important;
+                text-align: left !important;
+                box-sizing: border-box !important;
+            }
+
+            .nav-menu.mobile-open li {
+                list-style: none !important;
+                width: 100% !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: none !important;
+            }
+
+            .nav-menu.mobile-open .nav-item {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                padding: 16px 4px !important;
+                font-size: 1.05rem !important;
+                font-weight: 500 !important;
+                color: rgba(255, 255, 255, 0.9) !important;
+                text-decoration: none !important;
+                box-sizing: border-box !important;
+                border: none !important;
+                background: none !important;
+            }
+
+            .nav-menu.mobile-open .nav-item .fa-chevron-down {
+                display: none !important; /* 手机端抽屉展现一级主导航，去除箭头 */
+            }
+
+            .nav-menu.mobile-open .nav-item.active {
+                color: var(--better-red) !important;
+                font-weight: 700 !important;
+            }
+
+            /* 隐去移动端抽屉里复杂的 PC 端 Mega 联动下拉，保留干净清晰的核心主导航 */
+            .nav-menu.mobile-open .mega-menu,
+            .nav-menu.mobile-open .dropdown-menu {
+                display: none !important;
+            }
+
+            /* 移动端抽屉 4 国国旗语言选择栏 (高奢精致矩形卡片) */
+            .mobile-lang-drawer {
+                display: block !important;
+                margin-top: 32px !important;  /* 和主菜单之间充足隙 */
+                padding-top: 40px !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+                border-bottom: none !important;
+                width: 100% !important;
+            }
+
+            .mobile-lang-title {
+                font-size: 0.8rem !important;
+                color: rgba(255, 255, 255, 0.45) !important;
+                margin-bottom: 14px !important;
+                font-weight: 600 !important;
+                letter-spacing: 0.5px !important;
+                text-transform: uppercase !important;
+            }
+
+            .mobile-lang-flags {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                gap: 14px !important;
+                width: 100% !important;
+            }
+
+            /* 国旗图标式语言切换：只显示国旗，不显示文字 */
+            .mobile-lang-flags .flag-item {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 44px !important;
+                height: 32px !important;
+                padding: 4px !important;
+                background: rgba(255, 255, 255, 0.06) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                border-radius: 6px !important;
+                text-decoration: none !important;
+                box-sizing: border-box !important;
+                transition: border-color 0.2s, background 0.2s !important;
+            }
+
+            .mobile-lang-flags .flag-item:hover {
+                border-color: rgba(200, 22, 29, 0.6) !important;
+                background: rgba(200, 22, 29, 0.12) !important;
+            }
+
+            .mobile-lang-flags .flag-item.active {
+                border-color: #C8161D !important;
+                background: rgba(200, 22, 29, 0.18) !important;
+            }
+
+            .mobile-lang-flags .flag-item img {
+                width: 28px !important;
+                height: 20px !important;
+                object-fit: cover !important;
+                border-radius: 2px !important;
+                display: block !important;
+            }
+
+            /* 隐藏国旗旁边的文字标签 */
+            .mobile-lang-flags .flag-item span {
+                display: none !important;
+            }
+
+            /* 2. Hero 屏手机端完整正常显示 */
+            .hero-section {
+                height: 60vh !important;
+                min-height: 380px !important;
+                max-height: 520px !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+
+            .hero-swiper,
+            .hero-slide {
+                height: 100% !important;
+            }
+
+            .hero-bg-video,
+            .hero-bg-img {
+                height: 100% !important;
+                width: 100% !important;
+                object-fit: cover !important;
+            }
+
+            .hero-overlay {
+                padding-bottom: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .hero-slide .hero-left-box {
+                text-align: center !important;
+                margin: 0 auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .hero-title-main {
+                font-size: 1.45rem !important;
+                line-height: 1.35 !important;
+                text-align: center !important;
+                margin-bottom: 12px !important;
+            }
+
+            .hero-title-main .red-text {
+                font-size: 1.18rem !important;
+                margin-top: 4px !important;
+            }
+
+            .hero-arrow {
+                display: none !important; /* 手机端拖拽切换，隐藏两侧左右按钮 */
+            }
+
+            /* 3. 精致缩小全站板块大标题，拒绝硬换行 */
+            .industry-solutions-section h2,
+            .showroom-section h2,
+            .news-press-section h2,
+            .about-intro-title {
+                font-size: 1.45rem !important;
+                line-height: 1.35 !important;
+                margin-bottom: 8px !important;
+                letter-spacing: 0 !important;
+            }
+
+            .industry-solutions-section p,
+            .showroom-section p,
+            .news-press-section p {
+                font-size: 0.88rem !important;
+            }
+
+            /* 4. solution-main-title 手机端字体缩小 */
+            .solution-main-title {
+                font-size: 1.1rem !important;
+            }
+
+            /* 5. showroom-title-link 手机端字体增大，允许换行 */
+            .showroom-title-link {
+                font-size: 0.95rem !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+                min-height: auto !important;
+            }
+
+            /* 6. industry-solutions-section 底内边距改40px */
+            .industry-solutions-section {
+                padding-bottom: 40px !important;
+            }
+
+            /* 3. 手机端客户 logo 尺寸缩小 */
+            .marquee-item img {
+                max-height: 32px !important;
+                max-width: 100px !important;
+            }
+            .marquee-item {
+                height: 56px !important;
+                padding: 0 6px !important;
+            }
+
+            /* 4. 关于世宗数字: 2行2列展现 */
+            .stats-counter-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 24px 16px !important;
+                padding-top: 32px !important;
+                margin-top: 32px !important;
+            }
+
+            .stats-counter-item {
+                border-right: none !important;
+                padding: 0 8px !important;
+            }
+
+            .stats-counter-num {
+                font-size: 2.2rem !important;
+            }
+
+            .stats-counter-title {
+                font-size: 0.88rem !important;
+            }
+
+            /* 5. 四大产业落地场景: 1列4行堆叠 */
+            .solution-grid-2col,
+            .split-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+
+            .solution-img-box {
+                height: 220px !important;
+            }
+
+            /* 6. 核心展厅 (手机端 2 列双排精美卡片) */
+            .showroom-section {
+                padding: 45px 0;
+            }
+
+            .showroom-layout-2col {
+                flex-direction: column;
+                gap: 18px;
+                margin-top: 20px;
+            }
+
+            .showroom-sidebar {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+                padding: 8px;
+                gap: 8px;
+                border-radius: 8px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .showroom-sidebar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .showroom-tab-item {
+                flex-shrink: 0;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                border-radius: 6px;
+            }
+
+            .showroom-tab-item .fa-chevron-right {
+                display: none;
+            }
+
+            .showroom-grid-3col {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+
+            .showroom-product-card {
+                padding: 14px 10px;
+                border-radius: 8px;
+            }
+
+            .showroom-img-link {
+                height: 125px;
+                margin-bottom: 10px;
+            }
+
+
+
+
+            /* 新闻资讯手机端单列 */
+            .news-press-section {
+                padding: 45px 0;
+            }
+
+            .news-grid-3col {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+
+            .news-img-wrap {
+                height: 190px;
+            }
+
+            .news-title-link {
+                font-size: 1.1rem;
+            }
+
+            /* 7. 底部 6 个服务保障图标严格 3 列 2 行矩形排布 */
+            .footer-service-bar {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-template-rows: repeat(2, auto) !important;
+                gap: 20px 8px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto 30px auto !important;
+                padding: 0 !important;
+            }
+
+            .footer-service-item {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .footer-service-icon {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .footer-service-icon i {
+                font-size: 1.2rem !important;
+            }
+
+            .footer-service-text {
+                font-size: 0.85rem !important;
+            }
+
+            .footer-schmidt-upper {
+                grid-template-columns: 1fr !important;
+                gap: 36px !important;
+                text-align: center !important;
+            }
+
+            .footer-schmidt-col-left,
+            .footer-schmidt-col-center,
+            .footer-schmidt-col-right {
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-schmidt-col-center {
+                border-left: none !important;
+                border-right: none !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 24px 0 !important;
+            }
+
+            /* 彻底隐去手机端严重遮挡屏幕的右侧浮动工具栏 */
+            .right-float-bar {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .showroom-grid-3col {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+
+            .showroom-product-card {
+                padding: 10px 6px;
+            }
+
+            .showroom-img-link {
+                height: 110px;
+            }
+
+            .showroom-title-link {
+                font-size: 0.82rem;
+            }
+
+            .footer-service-bar {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+    </style>
+
+<style>
+/* 彻底强力隐藏 TranslatePress 右下角悬浮框 */
+.trp-language-switcher,
+.trp-floating-switcher,
+.trp-ls-dropdown,
+.trp-switcher-position-bottom,
+div[class*="trp-floating-switcher"],
+div[class*="trp-language-switcher"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 手机端 header-inner 左边距归零 */
+@media (max-width: 768px) {
+    .header-inner {
+        padding-left: 0 !important;
+        padding-right: 12px !important;
+    }
+}
+
+/* 底部 Footer 每一行垂直间距舒展拉大 */
+.footer-service-bar {
+    margin-bottom: 50px !important;
+    padding-bottom: 40px !important;
+}
+.footer-schmidt-cols {
+    padding: 60px 0 50px !important;
+    gap: 40px !important;
+}
+.footer-schmidt-col-left,
+.footer-schmidt-col-center,
+.footer-schmidt-col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+.footer-schmidt-col-left p,
+.footer-schmidt-col-center p,
+.footer-schmidt-col-right p {
+    margin-bottom: 12px !important;
+    line-height: 1.8 !important;
+}
+.footer-schmidt-phone {
+    margin: 18px 0 14px !important;
+    font-size: 1.95rem !important;
+    letter-spacing: 0.8px !important;
+}
+.footer-schmidt-social {
+    margin-top: 22px !important;
+    gap: 18px !important;
+}
+.footer-schmidt-link-btn {
+    margin-bottom: 12px !important;
+    padding: 10px 18px !important;
+}
+/* 英文版 Hero 标题字体缩小（body.lang-en 由 JS 动态添加） */
+body.lang-en .hero-title-main {
+    font-size: clamp(1.6rem, 2.8vw, 2.6rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+}
+body.lang-en .hero-title-main .red-text {
+    font-size: calc(1.05em + 6px) !important;
+}
+</style>
+
+
+<title>未找到页面 &#8211; SEJONG HITECH</title>
+<meta name='robots' content='max-image-preview:large' />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='trp-language-switcher-v2-css' href='https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher-v2.css?ver=3.3.7' media='all' />
+<script id="trp-language-switcher-js-v2-js" src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/js/trp-frontend-language-switcher.js?ver=3.3.7"></script>
+<link rel="https://api.w.org/" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0.7" />
+<link rel="alternate" hreflang="zh-CN" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/assets/images/product-meat.jpg"/>
+<link rel="alternate" hreflang="ko-KR" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/ko/assets/images/product-meat.jpg/"/>
+<link rel="alternate" hreflang="en-US" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/en/assets/images/product-meat.jpg/"/>
+<link rel="alternate" hreflang="ja" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/ja/assets/images/product-meat.jpg/"/>
+<link rel="alternate" hreflang="zh" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/assets/images/product-meat.jpg"/>
+<link rel="alternate" hreflang="ko" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/ko/assets/images/product-meat.jpg/"/>
+<link rel="alternate" hreflang="en" href="https://mediumturquoise-hummingbird-491885.hostingersite.com/en/assets/images/product-meat.jpg/"/>
+</head>
+<body>
+
+    <!-- 1. BETTER.CN HEADER WITH SPREAD / SPACED NAV -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo-red-block">
+                <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logo-white.png" alt="SEJONG HITECH">
+            </a>
+
+            <!-- 结合万家乐 (全宽暗色) + 德玛仕 (左右两列产品卡片) 下拉 Mega Menu -->
+            <ul class="nav-menu">
+                <!-- 1. 首页置顶链接 -->
+                <li><a href="#" class="nav-item active">首页</a></li>
+
+                <!-- 2. 关于世宗 (含二级下拉: 企业简介、权威资质) - 置于第二位 -->
+                <li class="nav-item-has-dropdown nav-item-has-mega">
+                    <a href="#about" class="nav-item"><span>关于世宗</span> <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about"><i class="fa-solid fa-building"></i> 企业简介与优势</a></li>
+                        <li><a href="#oem"><i class="fa-solid fa-certificate"></i> 权威资质认证</a></li>
+                    </ul>
+                </li>
+
+                <!-- 3. 核心合并菜单: 产品中心 (左侧 4 大分类，悬停右侧联动展示具体装备) -->
+                <li class="nav-item-has-mega">
+                    <a href="#meat" class="nav-item"><span>产品中心</span> <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-tabbed-container">
+                            
+                            <!-- 左侧 4 大主类 Tab 导航 sidebar -->
+                            <div class="mega-tab-sidebar">
+                                <div class="mega-tab-item active" data-tab="tab-meat">
+                                    <div class="tab-left">
+                                        <i class="fa-solid fa-drumstick-bite tab-icon"></i>
+                                        <span>商用肉类切削装备</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                </div>
+                                <div class="mega-tab-item" data-tab="tab-veg">
+                                    <div class="tab-left">
+                                        <i class="fa-solid fa-carrot tab-icon"></i>
+                                        <span>净菜清洗切削流水线</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                </div>
+                                <div class="mega-tab-item" data-tab="tab-fish">
+                                    <div class="tab-left">
+                                        <i class="fa-solid fa-fish tab-icon"></i>
+                                        <span>水产处理与去鳞装备</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                </div>
+                                <div class="mega-tab-item" data-tab="tab-conveyor">
+                                    <div class="tab-left">
+                                        <i class="fa-solid fa-gears tab-icon"></i>
+                                        <span>模块化输送系统</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                </div>
+                            </div>
+
+                            <!-- 右侧 4 大分类联动面板 Panels -->
+                            <div class="mega-tab-panels">
+                                
+                                <!-- 面板 1: 肉类切削装备 -->
+                                <div class="mega-panel-content active" id="tab-meat">
+                                    <div class="mega-header">
+                                        <span class="mega-title">肉类切削与分割装备全系 (Meat Processing)</span>
+                                        <a href="#meat" class="mega-more">查看全系肉类装备 →</a>
+                                    </div>
+                                    <div class="mega-grid-2col">
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-food-sliced.png', '鲜/冻肉斜切片机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-food-sliced.png" alt="切片机">
+                                            <div>
+                                                <div class="mega-prod-name">鲜/冻肉斜切片机</div>
+                                                <div class="mega-prod-desc">火锅肉片、羊肉卷、牛排精细斜切</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-meat.jpg', '带骨肉大型骨锯机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-meat.jpg" alt="骨锯机">
+                                            <div>
+                                                <div class="mega-prod-name">带骨肉大型骨锯机</div>
+                                                <div class="mega-prod-desc">冻骨、大排、猪蹄高速安全锯切</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-common.jpg', '高速立式绞肉机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-common.jpg" alt="绞肉机">
+                                            <div>
+                                                <div class="mega-prod-name">高速立式绞肉机</div>
+                                                <div class="mega-prod-desc">大容量鲜肉绞碎及肉馅加工</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-food-sliced.png', '智能控温切肉流水线')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-food-sliced.png" alt="切肉流水线">
+                                            <div>
+                                                <div class="mega-prod-name">智能控温切肉流水线</div>
+                                                <div class="mega-prod-desc">中央厨房与大批量工厂定制</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 面板 2: 净菜清洗切削 -->
+                                <div class="mega-panel-content" id="tab-veg">
+                                    <div class="mega-header">
+                                        <span class="mega-title">净菜清洗与切削流水线 (Vegetable Washing & Cutting)</span>
+                                        <a href="#veg" class="mega-more">查看全系净菜装备 →</a>
+                                    </div>
+                                    <div class="mega-grid-2col">
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-vegetable.jpg', '根茎/叶菜多功能切菜机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-vegetable.jpg" alt="切菜机">
+                                            <div>
+                                                <div class="mega-prod-name">根茎/叶菜多功能切菜机</div>
+                                                <div class="mega-prod-desc">切丝、切片、切丁、切段多功能</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-grain-machine.png', '涡流气泡清洗流水线')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-grain-machine.png" alt="清洗机">
+                                            <div>
+                                                <div class="mega-prod-name">涡流气泡清洗流水线</div>
+                                                <div class="mega-prod-desc">去除泥沙与农残、降解表皮杂质</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-common.jpg', '离心式甩干脱水机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-common.jpg" alt="脱水机">
+                                            <div>
+                                                <div class="mega-prod-name">离心式甩干脱水机</div>
+                                                <div class="mega-prod-desc">蔬菜表面水分快速高速抽干</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-vegetable.jpg', '大批量中央厨房净菜线')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-vegetable.jpg" alt="净菜线">
+                                            <div>
+                                                <div class="mega-prod-name">大批量中央厨房净菜线</div>
+                                                <div class="mega-prod-desc">全自动化预处理及气震清洗</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 面板 3: 水产处理装备 -->
+                                <div class="mega-panel-content" id="tab-fish">
+                                    <div class="mega-header">
+                                        <span class="mega-title">水产 Processing 与去鳞设备 (Fish & Seafood Processing)</span>
+                                        <a href="#products" class="mega-more">查看全系水产装备 →</a>
+                                    </div>
+                                    <div class="mega-grid-2col">
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-fishery.jpg', '自动打鳞杀鱼开背一体机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-fishery.jpg" alt="杀鱼机">
+                                            <div>
+                                                <div class="mega-prod-name">自动打鳞杀鱼开背一体机</div>
+                                                <div class="mega-prod-desc">高效率除鳞、开背及内脏清理</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-common.jpg', '三文鱼/金枪鱼精细切片机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-common.jpg" alt="鱼肉切片机">
+                                            <div>
+                                                <div class="mega-prod-name">三文鱼/金枪鱼精细切片机</div>
+                                                <div class="mega-prod-desc">刺身级均匀恒温快速切片</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 面板 4: 模块化输送系统 -->
+                                <div class="mega-panel-content" id="tab-conveyor">
+                                    <div class="mega-header">
+                                        <span class="mega-title">STS304 食品级模块化输送流水线 (Modular Conveyors)</span>
+                                        <a href="#products" class="mega-more">查看输送线详情 →</a>
+                                    </div>
+                                    <div class="mega-grid-2col">
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-conveyor.png', 'STS304 食品级链板输送机')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-conveyor.png" alt="输送机">
+                                            <div>
+                                                <div class="mega-prod-name">STS304 食品级链板输送机</div>
+                                                <div class="mega-prod-desc">耐腐蚀、极简拆洗、符合食品卫生</div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-product-item" onclick="openCertModal('assets/images/product-global-shipping.png', '智能化提升输送线')">
+                                            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/product-global-shipping.png" alt="提升机">
+                                            <div>
+                                                <div class="mega-prod-name">智能化提升输送线</div>
+                                                <div class="mega-prod-desc">多层立面高效率物料传输</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- 核心分类 3: 解决方案 -->
+                <li><a href="#meat" class="nav-item">解决方案</a></li>
+
+                <!-- 核心分类 4: OEM / 全球合作 -->
+                <li><a href="#oem" class="nav-item">OEM / 全球合作</a></li>
+
+                <!-- 核心分类 5: 结尾独立“联系我们” -->
+                <li><a href="#contact" class="nav-item">联系我们</a></li>
+
+                <!-- 移动端汉堡抽屉专属 4 国国旗语言选择栏 -->
+                <li class="mobile-lang-drawer">
+    <div class="mobile-lang-title">选择语言 / Select Language</div>
+    <div class="mobile-lang-flags" id="mobile-lang-flags">
+        <a href="/" class="flag-item lang-btn" data-lang="zh">
+            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/cn.png" alt="China"> <span>中文</span>
+        </a>
+        <a href="/ko/" class="flag-item lang-btn" data-lang="ko">
+            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/kr.png" alt="Korean"> <span>한국어</span>
+        </a>
+        <a href="/en/" class="flag-item lang-btn" data-lang="en">
+            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/us.png" alt="English"> <span>English</span>
+        </a>
+        <a href="/ja/" class="flag-item lang-btn" data-lang="ja">
+            <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/jp.png" alt="Japan"> <span>日本語</span>
+        </a>
+    </div>
+</li>
+            </ul>
+
+            <!-- 4 国国旗语言栏 (支持一键无感全站 4 国语言实时切换: 中/韩/英/日) -->
+            <div class="header-flags-wrap" id="header-flags-wrap">
+    <a href="/" class="flag-item lang-btn" data-lang="zh" title="中文 (Chinese)">
+        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/cn.png" alt="China">
+    </a>
+    <a href="/ko/" class="flag-item lang-btn" data-lang="ko" title="한국어 (Korean)">
+        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/kr.png" alt="Korean">
+    </a>
+    <a href="/en/" class="flag-item lang-btn" data-lang="en" title="English (US)">
+        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/us.png" alt="English">
+    </a>
+    <a href="/ja/" class="flag-item lang-btn" data-lang="ja" title="日本語 (Japanese)">
+        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/flags/jp.png" alt="Japan">
+    </a>
+</div>
+
+            <!-- 移动端汉堡抽屉菜单按钮 -->
+            <button class="mobile-hamburger-btn" onclick="toggleMobileNav()" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. HERO SWIPER SECTION (第一屏视频 + 第二三屏高清图片轮播) -->
+    <section class="hero-section">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                
+                <!-- 第一屏 Hero: 原画 MP4 动态视频背景 -->
+                <div class="swiper-slide hero-slide">
+                    <video autoplay loop muted playsinline preload="metadata" poster="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/hero-poster.jpg" class="hero-bg-video">
+                        <source src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/原始资料/main_video.mp4" type="video/mp4">
+                        <source src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/原始资料/main_video.webm" type="video/webm">
+                    </video>
+                    <div class="hero-overlay">
+                        <div class="container">
+                            <div class="hero-left-box">
+                                <h1 class="hero-title-main">
+                                    23年韩国精工制造<br>
+                                    食品加工自动化解决方案<br>
+                                    <span class="red-text">始创 2003 · 韩国世宗</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二屏 Hero: 新追加 Banner 设计 1.webp -->
+                <div class="swiper-slide hero-slide">
+                    <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/原始资料/banner 设计/1.webp" alt="世宗肉类切削加工装备 Banner" class="hero-bg-img">
+                    <div class="hero-overlay">
+                        <div class="container">
+                            <div class="hero-left-box">
+                                <h1 class="hero-title-main">
+                                    高产能肉类切割装备<br>
+                                    大幅提升加工效率<br>
+                                    <span class="red-text">鲜/冻肉精细分割</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三屏 Hero: (原第五张) 世宗原厂 main_visual01.jpg 精工设备大图 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/hero-visual01.jpg" alt="世宗原厂精工机械大图" class="hero-bg-img">
+                    <div class="hero-overlay">
+                        <div class="container">
+                            <div class="hero-left-box">
+                                <h1 class="hero-title-main">
+                                    提供一站式 OEM / ODM 定制<br>
+                                    测试中心现场试机保障<br>
+                                    <span class="red-text">全流程研发与交付</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第四屏 Hero: 新追加 Banner 设计 2.webp -->
+                <div class="swiper-slide hero-slide">
+                    <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/原始资料/banner 设计/2.webp" alt="世宗净菜与水产加工 Banner" class="hero-bg-img">
+                    <div class="hero-overlay">
+                        <div class="container">
+                            <div class="hero-left-box">
+                                <h1 class="hero-title-main">
+                                    全线采用 STS304 不锈钢<br>
+                                    净菜清洗与水产分割流水线<br>
+                                    <span class="red-text">卫生安全 · 批量生产</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第五屏 Hero: 高清制造工厂图片 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/hero-factory.jpg" alt="世宗高科技商用加工机械精工制造" class="hero-bg-img">
+                    <div class="hero-overlay">
+                        <div class="container">
+                            <div class="hero-left-box">
+                                <h1 class="hero-title-main">
+                                    覆盖全球 100+ 国家与地区<br>
+                                    19,000+ 客户信赖之选<br>
+                                    <span class="red-text">ISO & CE 国际认证</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 左右极简细线尖括号箭头导航 (用户红框指引位置) -->
+            <div class="hero-arrow hero-arrow-prev"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="hero-arrow hero-arrow-next"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Swiper 分页圆点 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 3. 1:1 BETTER 风格：Hero 下方公司介绍与大数字统计板块 (ABOUT SEJONG & STATS) -->
+    <section class="about-stats-section" id="about">
+        <div class="container">
+            <!-- 居中红底品牌 Logo 贴片 (替换为官方 Logo 图片) -->
+            <div class="about-logo-badge">
+                <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logo-white.png" alt="SEJONG HITECH" class="about-logo-img">
+            </div>
+
+            <!-- 居中公司定位与介绍 (强制硬换行 + 梯形优雅平衡排版) -->
+            <div class="about-intro-text">
+                <p class="about-intro-title">
+                    值得信赖的商用食品加工机械一站式解决方案提供商
+                </p>
+                <p class="about-intro-mid">
+                    世宗高科技自 2003 年创立起，23 年专注精工研制<br>
+                    商用肉类切片机、净菜清洗切削机、水产分割机及厨房装备。
+                </p>
+                <p class="about-intro-sub">
+                    总部及制造基地位于韩国忠清北道清州市（Cheongju, Korea），依托自有研发与测试设施<br>
+                    为全球<span class="about-intro-highlight">餐饮、团餐、食品工厂及连锁加盟</span>产业提供设备与全流程 OEM / ODM 运营支持。
+                </p>
+            </div>
+
+            <!-- 4 大官方红字 Counters (美的/Apple 风格上下翻滚滚轴数字) -->
+            <div class="stats-counter-grid">
+                <div class="stats-counter-item">
+                    <div class="stats-counter-num tabular-num" data-value="23+">23+</div>
+                    <div class="stats-counter-title">年精工制造经验</div>
+                </div>
+
+                <div class="stats-counter-item">
+                    <div class="stats-counter-num tabular-num" data-value="18+">18+</div>
+                    <div class="stats-counter-title">全球出口国家与地区</div>
+                </div>
+
+                <div class="stats-counter-item">
+                    <div class="stats-counter-num tabular-num" data-value="19,000+">19,000+</div>
+                    <div class="stats-counter-title">韩国及全球客户案例</div>
+                </div>
+
+                <div class="stats-counter-item">
+                    <div class="stats-counter-num tabular-num" data-value="15+">15+</div>
+                    <div class="stats-counter-title">自主注册专利与 ISO 认证</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.01 全宽 100vw 无缝无限滚动韩国头部合作客户 Logo 跑马灯通栏 (Logo 高度 80px 柔和白) -->
+    <section class="client-logos-marquee-section">
+        <div class="marquee-track">
+            <!-- 组 A: 32 个韩国合作客户透明 PNG Logo -->
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_1.png" alt="SAMSUNG Welstory"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_2.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_3.png" alt="SHINSEGAE FOOD"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_4.png" alt="CJ FRESHWAY"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_5.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_6.png" alt="OURHOME"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_7.png" alt="HYUNDAI GREEN FOOD"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_8.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_9.png" alt="KOREAN AIR"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_10.png" alt="Pulmuone"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_11.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_12.png" alt="NONGSHIM"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_13.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_14.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_15.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_16.png" alt="Emart"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_17.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_18.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_19.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_20.png" alt="LOTTE WELLFOOD"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_21.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_22.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_23.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_24.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_25.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_26.png" alt="Sung Sim Dang"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_27.png" alt="Dongwon"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_28.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_29.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_30.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_31.png" alt="Client Reference"></div>
+            <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_32.png" alt="Client Reference"></div>
+                <div class="marquee-item"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logos_transparent/client_logo_32.png" alt="Client Reference"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.1 RIGHT VERTICAL FLOATING TOOLBAR (视频演示/电话/邮件/回到顶部) -->
+    <div class="right-float-bar">
+        <div class="float-item" onclick="openCertModal('assets/images/test-center.jpg', '工厂测试中心现场')" title="演示视频">
+            <i class="fa-regular fa-circle-play"></i>
+        </div>
+        <div class="float-item" onclick="openContactModal()" title="电话咨询">
+            <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="float-item" onclick="openContactModal()" title="邮件咨询">
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="float-item" onclick="scrollToTop()" title="回到顶部">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+    </div>
+
+    <!-- 4. 四大产业落地场景解决方案 (暗黑背景 + 浅色高奢文字 + 0边框0圆角) -->
+    <section class="industry-solutions-section" id="meat">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <h2 style="font-size: 2.3rem; font-weight: 900; color: #FFFFFF;">四大产业落地场景解决方案</h2>
+                <p style="color: rgba(255, 255, 255, 0.65); font-size: 1.05rem; margin-top: 10px;">
+                    韩国世宗高科技全流程运营支持
+                </p>
+            </div>
+
+            <div class="solution-grid-2col">
+                <!-- 场景 1: 肉类 (slt1.webp) -->
+                <div class="solution-scene-card" onclick="openCertModal('assets/images/solutions/slt1.webp', '商用肉类精细分割与加工方案')">
+                    <div class="solution-img-box">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt1.webp" alt="商用肉类精细分割与加工方案">
+                    </div>
+                    <div class="solution-info-box">
+                        <h3 class="solution-main-title">商用肉类精细分割与加工方案</h3>
+                        <p class="solution-sub-desc">
+                            包含鲜/冻肉斜切片（羊肉卷/牛排）、带骨肉高张力骨锯切块、高速立式绞肉。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 场景 2: 净菜洗切 (slt2.webp) -->
+                <div class="solution-scene-card" id="veg" onclick="openCertModal('assets/images/solutions/slt2.webp', '净菜标准化洗切流水线方案')">
+                    <div class="solution-img-box">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt2.webp" alt="净菜标准化洗切流水线方案">
+                    </div>
+                    <div class="solution-info-box">
+                        <h3 class="solution-main-title">净菜标准化洗切流水线方案</h3>
+                        <p class="solution-sub-desc">
+                            包含根茎/叶菜多功能切削、气泡涡流降解农残清洗、离心高速甩干脱水。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 场景 3: 水产 (slt3.webp) -->
+                <div class="solution-scene-card" onclick="openCertModal('assets/images/solutions/slt3.webp', '水产去鳞开背与刺身切片方案')">
+                    <div class="solution-img-box">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt3.webp" alt="水产去鳞开背与刺身切片方案">
+                    </div>
+                    <div class="solution-info-box">
+                        <h3 class="solution-main-title">水产去鳞开背与刺身切片方案</h3>
+                        <p class="solution-sub-desc">
+                            适应海水/淡水全鱼种的自动去鳞开背、三文鱼/金枪鱼刺身级均匀切片。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 场景 4: 输送系统 (slt4.webp) -->
+                <div class="solution-scene-card" onclick="openCertModal('assets/images/solutions/slt4.webp', '食品工厂模块化输送系统方案')">
+                    <div class="solution-img-box">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt4.webp" alt="食品工厂模块化输送系统方案">
+                    </div>
+                    <div class="solution-info-box">
+                        <h3 class="solution-main-title">食品工厂模块化输送系统方案</h3>
+                        <p class="solution-sub-desc">
+                            STS304 食品级易拆洗链板输送机、多层立面物料提升系统，无缝对接后段包装线。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 6. 核心商用设备展厅 (暗黑高奢 + 2列左右结构 + 4列Swiper横向滑动) -->
+    <section class="showroom-section" id="products">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="font-size: 2.3rem; font-weight: 900; color: #FFFFFF;">核心商用设备展厅</h2>
+                <p style="color: rgba(255, 255, 255, 0.65); font-size: 1.05rem; margin-top: 8px;">
+                    韩国世宗高科技 6 大核心产品线与全系智能化机型实拍
+                </p>
+            </div>
+
+            <!-- 两列左右结构 -->
+            <div class="showroom-layout-2col">
+                
+                <!-- 左侧 6 大分类 Sidebar -->
+                <div class="showroom-sidebar">
+                    <div class="showroom-tab-item active" data-showroom-tab="showroom-meat">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-drumstick-bite showroom-tab-icon"></i>
+                            <span>商用肉类加工装备</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="showroom-tab-item" data-showroom-tab="showroom-veg">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-carrot showroom-tab-icon"></i>
+                            <span>净菜与果蔬洗切流水线</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="showroom-tab-item" data-showroom-tab="showroom-fish">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-fish showroom-tab-icon"></i>
+                            <span>水产与海鲜处理装备</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="showroom-tab-item" data-showroom-tab="showroom-mix">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-mortar-pestle showroom-tab-icon"></i>
+                            <span>混合与研磨搅拌装备</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="showroom-tab-item" data-showroom-tab="showroom-cook">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-fire-burner showroom-tab-icon"></i>
+                            <span>自动化烹饪与加工设备</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="showroom-tab-item" data-showroom-tab="showroom-conveyor">
+                        <div class="showroom-tab-left">
+                            <i class="fa-solid fa-box-archive showroom-tab-icon"></i>
+                            <span>模块化输送与包装系统</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- 右侧 6 大面板 (3 列 x 2 行，共 6 个大产品卡片平铺) -->
+                <div class="showroom-panels">
+                    
+                    <!-- 面板 1: 肉类加工装备 -->
+                    <div class="showroom-panel-content active" id="showroom-meat">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="S303"></a>
+                                <a href="#" class="showroom-title-link">S303 鲜/冻肉多功能斜切机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_2.png" alt="SC-M22G"></a>
+                                <a href="#" class="showroom-title-link">SC-M22G 高速立式绞肉机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_3.png" alt="SM-M310"></a>
+                                <a href="#" class="showroom-title-link">SM-M310 带骨肉精细切块机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="SM-S303"></a>
+                                <a href="#" class="showroom-title-link">SM-S303 大型高张力骨锯机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_5.png" alt="S110"></a>
+                                <a href="#" class="showroom-title-link">S110 恒温肉类精密切片机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_6.png" alt="S150"></a>
+                                <a href="#" class="showroom-title-link">S150 工业重型剁骨切块机</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 面板 2: 净菜与果蔬 -->
+                    <div class="showroom-panel-content" id="showroom-veg">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_6.png" alt="SMT-V900"></a>
+                                <a href="#" class="showroom-title-link">SMT-V900 果蔬精密切丁机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_7.png" alt="S120"></a>
+                                <a href="#" class="showroom-title-link">S120 根茎叶菜多功能切菜机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="V800"></a>
+                                <a href="#" class="showroom-title-link">V800 气泡涡流降解清洗线</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_2.png" alt="V500"></a>
+                                <a href="#" class="showroom-title-link">V500 离心式高速脱水甩干机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_3.png" alt="V300"></a>
+                                <a href="#" class="showroom-title-link">V300 自动剥皮去皮切削机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="V1000"></a>
+                                <a href="#" class="showroom-title-link">V1000 根茎清洗脱皮流水线</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 面板 3: 水产海鲜 -->
+                    <div class="showroom-panel-content" id="showroom-fish">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_3.png" alt="F400"></a>
+                                <a href="#" class="showroom-title-link">F400 自动打鳞杀鱼开背一体机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="F600"></a>
+                                <a href="#" class="showroom-title-link">F600 三文鱼刺身级均匀切片机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_5.png" alt="F200"></a>
+                                <a href="#" class="showroom-title-link">F200 海水/淡水全自动去皮机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_6.png" alt="F800"></a>
+                                <a href="#" class="showroom-title-link">F800 鱿鱼/鳗鱼高效率切丝机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_7.png" alt="F100"></a>
+                                <a href="#" class="showroom-title-link">F100 水产定重去骨分割机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="F900"></a>
+                                <a href="#" class="showroom-title-link">F900 工业级水产清洗浸泡线</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 面板 4: 混合与研磨 -->
+                    <div class="showroom-panel-content" id="showroom-mix">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_7.png" alt="WB-COLLOID"></a>
+                                <a href="#" class="showroom-title-link">WB-COLLOID 高性能胶体研磨机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="WB-MIX100"></a>
+                                <a href="#" class="showroom-title-link">WB-MIX100 食品大容量浆料混合机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_2.png" alt="WB-GRIND"></a>
+                                <a href="#" class="showroom-title-link">WB-GRIND 食品微粉碎立式搅拌机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_3.png" alt="WB-500"></a>
+                                <a href="#" class="showroom-title-link">WB-500 立式高粘度调味酱搅拌机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="WB-800"></a>
+                                <a href="#" class="showroom-title-link">WB-800 工业级真空均质搅拌机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_5.png" alt="WB-200"></a>
+                                <a href="#" class="showroom-title-link">WB-200 肉馅高速绞拌胶体磨</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 面板 5: 自动化烹饪 -->
+                    <div class="showroom-panel-content" id="showroom-cook">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="WB-COOK"></a>
+                                <a href="#" class="showroom-title-link">WB-COOK 电气自动倾倒炒锅</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_5.png" alt="WB-SOY"></a>
+                                <a href="#" class="showroom-title-link">WB-SOY 商业级高速智能豆浆机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_6.png" alt="WB-NOODLE"></a>
+                                <a href="#" class="showroom-title-link">WB-NOODLE 全自动连续压面机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_7.png" alt="WB-SUSHI"></a>
+                                <a href="#" class="showroom-title-link">WB-SUSHI 商用全自动寿司成型机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="WB-RICE"></a>
+                                <a href="#" class="showroom-title-link">WB-RICE 米饭自动分量捏饭机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_2.png" alt="WB-STEAM"></a>
+                                <a href="#" class="showroom-title-link">WB-STEAM 连续式蒸煮冷却流水线</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 面板 6: 模块化输送与包装 -->
+                    <div class="showroom-panel-content" id="showroom-conveyor">
+                        <div class="showroom-grid-3col">
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_1.png" alt="STS304"></a>
+                                <a href="#" class="showroom-title-link">STS304 食品级链板输送机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_2.png" alt="ELEVATOR"></a>
+                                <a href="#" class="showroom-title-link">ELEVATOR 智能多层物料提升线</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_3.png" alt="SEALER"></a>
+                                <a href="#" class="showroom-title-link">BAND-SEALER 高速连续自动封口机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_4.png" alt="VACUUM"></a>
+                                <a href="#" class="showroom-title-link">VACUUM 工业级全自动双室真空包装机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_5.png" alt="CONV-V"></a>
+                                <a href="#" class="showroom-title-link">CONV-V 倾斜易拆洗带挡板输送机</a>
+                            </div>
+                            <div class="showroom-product-card">
+                                <a href="#" class="showroom-img-link"><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/gallery/real_cutout_6.png" alt="MAP-PACK"></a>
+                                <a href="#" class="showroom-title-link">MAP-PACK 气调保鲜锁鲜包装机</a>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7.5 新闻资讯与技术动态 (0边框0圆角 大气平铺版) -->
+    <section class="news-press-section" id="news">
+        <div class="container">
+            <div class="news-header-center">
+                <h2 class="news-section-title">新闻资讯与技术动态</h2>
+                <p class="news-section-subtitle">探索世宗高科技在商用厨房与食品加工智能化领域的最新研发成果与企业资讯</p>
+            </div>
+
+            <div class="news-grid-3col">
+                <!-- 资讯 1 -->
+                <a href="https://blog.naver.com/mallsea" target="_blank" class="news-card">
+                    <div class="news-img-wrap">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt1.webp" alt="世宗高科技首发新一代智能鲜/冻肉多功能斜切流水线">
+                    </div>
+                    <div class="news-body">
+                        <div class="news-category-tag">展会资讯 · 2026-08</div>
+                        <h3 class="news-title-link">世宗高科技首发新一代智能鲜/冻肉多功能斜切流水线</h3>
+                    </div>
+                </a>
+
+                <!-- 资讯 2 -->
+                <a href="https://blog.naver.com/mallsea" target="_blank" class="news-card">
+                    <div class="news-img-wrap">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt2.webp" alt="中央厨房净菜加工效率提升：气泡涡流降解清洗技术详解">
+                    </div>
+                    <div class="news-body">
+                        <div class="news-category-tag">技术解析 · 2026-07</div>
+                        <h3 class="news-title-link">中央厨房净菜加工效率提升：气泡涡流降解清洗技术详解</h3>
+                    </div>
+                </a>
+
+                <!-- 资讯 3 -->
+                <a href="https://blog.naver.com/mallsea" target="_blank" class="news-card">
+                    <div class="news-img-wrap">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/solutions/slt3.webp" alt="世宗高科技荣获 3 项特许厅发明专利：自动化水产 Processing 突破">
+                    </div>
+                    <div class="news-body">
+                        <div class="news-category-tag">专利创新 · 2026-06</div>
+                        <h3 class="news-title-link">世宗高科技荣获 3 项特许厅发明专利：自动化水产 Processing 突破</h3>
+                    </div>
+                </a>
+            </div>
+
+            <div class="news-btn-wrap">
+                <a href="https://blog.naver.com/mallsea" target="_blank" class="news-more-btn">
+                    <span>查看更多新闻</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SCHMIDT STYLE INTERNATIONAL HIGH-END FOOTER -->
+    <footer class="footer-schmidt-style" id="contact">
+        <div class="container">
+            
+            <!-- 页脚内部 70% 容器宽度居中无线条大图标服务保障横条 -->
+            <div class="footer-service-bar">
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="footer-service-text">原厂正品</div>
+                </div>
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="footer-service-text">品质质保</div>
+                </div>
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="footer-service-text">安全运输</div>
+                </div>
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <div class="footer-service-text">售后上门</div>
+                </div>
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                    <div class="footer-service-text">售后咨询</div>
+                </div>
+                <div class="footer-service-item" onclick="openContactModal()">
+                    <div class="footer-service-icon"><i class="fa-solid fa-headset"></i></div>
+                    <div class="footer-service-text">联系客服</div>
+                </div>
+            </div>
+
+            <!-- 上半部分 3 列流线对称大格局 -->
+            <div class="footer-schmidt-upper">
+                
+                <!-- 左侧列: 服务热线与超大数字 -->
+                <div class="footer-schmidt-col-left">
+                    <div class="footer-brand-logo-wrap">
+                        <img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/themes/sejong-theme/assets/images/logo-white.png" alt="SEJONG HITECH">
+                    </div>
+                    <div class="footer-hotline-label">全球统一服务热线 / SERVICE HOTLINE</div>
+                    <a href="tel:+82432601926" class="footer-phone-big">+82-43-260-1926</a>
+                    <div class="footer-phone-sub">中国区/国际商务直拨: 043-260-1926 (韩国总部)</div>
+                </div>
+
+                <!-- 中间列: 品牌名 + 社交媒体 + 4 大优雅圆圈 Button 组 -->
+                <div class="footer-schmidt-col-center">
+                    <div class="footer-center-brand-name">
+                        SEJONG <span>HITECH</span>
+                    </div>
+                    <div class="footer-social-label">官方社交媒体与权威资讯</div>
+                    <div class="footer-social-circle-group">
+                        <a href="https://blog.naver.com/mallsea" target="_blank" class="social-circle-btn" title="韩国 Naver 官方博客 (blog.naver.com/mallsea)">
+                            <i class="fa-solid fa-blog"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@seamart24" target="_blank" class="social-circle-btn" title="YouTube 官方视频频道 (@seamart24)">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="openContactModal()" class="social-circle-btn" title="官方微信 (WeChat客服)">
+                            <i class="fa-brands fa-weixin"></i>
+                        </a>
+                        <a href="mailto:contact@sejonght.com" class="social-circle-btn" title="商务电子邮箱 (contact@sejonght.com)">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右侧列: 快捷入口 + 三色圆点品质标记 -->
+                <div class="footer-schmidt-col-right">
+                    <div class="footer-quick-links">
+                        <a href="javascript:void(0)" onclick="openContactModal()" class="footer-quick-link-item">
+                            <i class="fa-solid fa-calendar-check" style="color:var(--better-red);"></i> <span>预约韩国工厂测试中心现场试机</span>
+                        </a>
+                        <a href="javascript:void(0)" onclick="openCertModal('assets/images/hero-factory.jpg', '韩国忠清北道清州总部工厂')" class="footer-quick-link-item">
+                            <i class="fa-solid fa-vr-cardboard" style="color:var(--better-red);"></i> <span>忠清北道清州市 HQ 全景展厅</span>
+                        </a>
+                    </div>
+                    <div class="footer-quality-badge-line">
+                        1<sup>ST</sup> KOREAN FOOD MACHINERY EXCELLENCE
+                        <span class="flag-dots-group">
+                            <span class="flag-dot" style="background:#C8161D;"></span>
+                            <span class="flag-dot" style="background:#FFFFFF;"></span>
+                            <span class="flag-dot" style="background:#0047A0;"></span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 底部深色 Copyright 版权区 -->
+        <div class="footer-schmidt-bottom">
+            <div class="container">
+                <div>
+                    官方商务热线: +82-43-260-1926 &nbsp;|&nbsp; 代表理事 (CEO): 정인자 (郑仁资) &nbsp;|&nbsp; 企业名: 세종하이텍 (SEJONG HITECH CO., LTD.)
+                </div>
+                <div>
+                    总部工厂地址: 忠清北道清州市興德區江內面太城塔硏路 38-12 (38-12, Taeseongtapyeon-gil, Gangnae-myeon, Heungdeok-gu, Cheongju-si, Chungbuk, Korea)
+                </div>
+                <div style="margin-top: 4px; color: #4B5563;">
+                    &copy; 2026 SEJONG HITECH Co., Ltd. & WB. All Rights Reserved. &nbsp;|&nbsp; 
+                    <a href="https://blog.naver.com/mallsea" target="_blank">Naver 官方博客</a> &nbsp;|&nbsp; 
+                    权威 ISO 9001 / CE / KC 国际质量体系安全认证
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL OVERLAY -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        // =========================================================
+        // 产品中心：Tabbed Mega Menu 鼠标悬停左侧 4 列联动右侧机型面板
+        // =========================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabItems = document.querySelectorAll('.mega-tab-item');
+            const panelContents = document.querySelectorAll('.mega-panel-content');
+
+            tabItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const targetId = this.getAttribute('data-tab');
+                    
+                    tabItems.forEach(t => t.classList.remove('active'));
+                    panelContents.forEach(p => p.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const activePanel = document.getElementById(targetId);
+                    if (activePanel) {
+                        activePanel.classList.add('active');
+                    }
+                });
+            });
+
+            // =========================================================
+            // 核心商用设备展厅：左侧 6 大 Tab 联动右侧 4 列 Swiper 产品横向滚动
+            // =========================================================
+            const showroomTabs = document.querySelectorAll('.showroom-tab-item');
+            const showroomPanels = document.querySelectorAll('.showroom-panel-content');
+
+            showroomTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-showroom-tab');
+                    
+                    showroomTabs.forEach(t => t.classList.remove('active'));
+                    showroomPanels.forEach(p => p.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const activePanel = document.getElementById(targetId);
+                    if (activePanel) {
+                        activePanel.classList.add('active');
+                    }
+                });
+            });
+
+            // 初始化 6 大面板的 4 列 Swiper (每行 4 个产品，支持左右按钮滑动)
+            for (let i = 1; i <= 6; i++) {
+                new Swiper(`.showroom-swiper-${i}`, {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                    loop: false,
+                    navigation: {
+                        nextEl: `.showroom-next-${i}`,
+                        prevEl: `.showroom-prev-${i}`,
+                    },
+                    breakpoints: {
+                        320: { slidesPerView: 1, spaceBetween: 12 },
+                        640: { slidesPerView: 2, spaceBetween: 16 },
+                        1024: { slidesPerView: 3, spaceBetween: 18 },
+                        1280: { slidesPerView: 4, spaceBetween: 20 },
+                    }
+                });
+            }
+        });
+        // 1:1 对齐 Winterhalter 德系高奢沉稳动效 (speed: 1200ms + cubic-bezier 缓动)
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            speed: 1200,
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.hero-arrow-next',
+                prevEl: '.hero-arrow-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Tab Switching
+        function switchTab(evt, tabId) {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            evt.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Certificate Lightbox Modal
+        function openCertModal(imgSrc, title) {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div style="text-align: center;">
+                    <h3 style="font-size: 1.25rem; color: #141414; margin-bottom: 16px;">${title}</h3>
+                    <div style="background-color: #F4F4F5; padding: 16px; display: inline-block; max-width: 100%; border-radius:8px;">
+                        <img src="${imgSrc}" alt="${title}" style="max-height: 480px; width: auto; object-fit: contain;">
+                    </div>
+                    <div style="margin-top: 16px; font-size: 0.85rem; color: #71717A;">世宗高科技官方证书与专利核验存档</div>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.add('active');
+        }
+
+        // Contact Modal
+        function openContactModal() {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #C8161D; margin-bottom: 8px;">EQUIPMENT INQUIRY</div>
+                    <h3 style="font-size: 1.4rem; color: #141414; margin-bottom: 16px;">联系世宗高科技装备专员</h3>
+                    <p style="font-size: 0.9rem; color: #71717A; margin-bottom: 20px;">
+                        请填写您的食材加工需求或采购意向，我们的团队将在 24 小时内联系您。
+                    </p>
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div style="margin-bottom: 14px;">
+                            <input type="text" placeholder="您的姓名 / 公司名称 *" required style="width:100%; padding:12px; background:#F4F4F5; border:1px solid #E4E7EC; color:#141414; outline:none; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 14px;">
+                            <input type="email" placeholder="电子邮箱地址 *" required style="width:100%; padding:12px; background:#F4F4F5; border:1px solid #E4E7EC; color:#141414; outline:none; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 14px;">
+                            <textarea placeholder="请简述您的需求（如：冻肉切片机、蔬菜洗切流水线、水产分割设备）" rows="4" style="width:100%; padding:12px; background:#F4F4F5; border:1px solid #E4E7EC; color:#141414; outline:none; border-radius:4px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-better-red" style="width: 100%; justify-content:center;">提交询价需求</button>
+                    </form>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').classList.remove('active');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('感谢您的咨询！需求已提交（示例演示），客户客服将通过邮件联系您。');
+            closeModal();
+        }
+        // =========================================================
+        // 美的/Apple 风格：老虎机机械上下翻滚数字滚轴引擎 (Slot Roll Ticker)
+        // =========================================================
+        function initSlotRollTicker() {
+            const counterEls = document.querySelectorAll('.stats-counter-num[data-value]');
+            if (!counterEls.length) return;
+
+            // 1. 构建每一位的滚轴 DOM
+            counterEls.forEach(el => {
+                const valStr = el.getAttribute('data-value');
+                el.innerHTML = '';
+                const wrap = document.createElement('div');
+                wrap.className = 'ticker-digit-wrap';
+
+                for (let i = 0; i < valStr.length; i++) {
+                    const char = valStr[i];
+                    if (/\d/.test(char)) {
+                        const targetNum = parseInt(char, 10);
+                        const col = document.createElement('div');
+                        col.className = 'ticker-col';
+                        
+                        const inner = document.createElement('div');
+                        inner.className = 'ticker-inner';
+                        inner.setAttribute('data-target', targetNum);
+
+                        for (let n = 0; n <= 9; n++) {
+                            const span = document.createElement('span');
+                            span.textContent = n;
+                            inner.appendChild(span);
+                        }
+
+                        col.appendChild(inner);
+                        wrap.appendChild(col);
+                    } else {
+                        const symbol = document.createElement('span');
+                        symbol.className = 'ticker-symbol';
+                        symbol.textContent = char;
+                        wrap.appendChild(symbol);
+                    }
+                }
+                el.appendChild(wrap);
+            });
+
+            // 2. 监听滚动触发翻滚动画
+            let animated = false;
+            function triggerRollAnimation() {
+                if (animated) return;
+                animated = true;
+
+                counterEls.forEach((el) => {
+                    const inners = el.querySelectorAll('.ticker-inner');
+                    inners.forEach((inner, idx) => {
+                        const target = parseInt(inner.getAttribute('data-target'), 10);
+                        setTimeout(() => {
+                            inner.style.transform = `translateY(-${target * 10}%)`;
+                        }, idx * 120);
+                    });
+                });
+            }
+
+            // 3. 视口交叉监控 (IntersectionObserver)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        triggerRollAnimation();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            const statsSection = document.getElementById('about') || document.querySelector('.about-stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            } else {
+                triggerRollAnimation();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initSlotRollTicker);
+
+        function toggleMobileNav() {
+            const navMenu = document.querySelector('.nav-menu');
+            const btn     = document.querySelector('.mobile-hamburger-btn');
+            const icon    = btn ? btn.querySelector('i') : null;
+            if (!navMenu) return;
+
+            const isOpening = !navMenu.classList.contains('mobile-open');
+            navMenu.classList.toggle('mobile-open');
+
+            if (isOpening) {
+                if (icon) icon.className = 'fa-solid fa-xmark';
+                if (btn)  btn.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                if (icon) icon.className = 'fa-solid fa-bars';
+                if (btn)  btn.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // === 国旗语言栏智能排序：将当前语言国旗置顶 ===
+        (function() {
+            // 从 URL 路径解析当前语言 slug
+            const pathParts = location.pathname.split('/').filter(Boolean);
+            const langSlugMap = { 'ko': 'ko', 'en': 'en', 'ja': 'ja' };
+            let currentLang = 'zh'; // 默认中文
+            if (pathParts.length > 0 && langSlugMap[pathParts[0]]) {
+                currentLang = langSlugMap[pathParts[0]];
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('lang-' + currentLang);
+
+                // 强制覆盖中文国旗链接为根路径 "/"
+                // TranslatePress 在服务端 PHP 阶段把所有内部链接加了语言前缀，
+                // 这里在 JS 执行时覆盖，确保中文国旗始终指向首页根路径。
+                document.querySelectorAll('.flag-item[data-lang="zh"]').forEach(function(el) {
+                    el.href = '/';
+                });
+            });
+
+            function reorderFlags(container) {
+                if (!container) return;
+                const items = Array.from(container.querySelectorAll('.flag-item[data-lang]'));
+                if (!items.length) return;
+
+                // 移除所有 active
+                items.forEach(el => el.classList.remove('active'));
+
+                // 找到当前语言的国旗
+                const activeItem = items.find(el => el.dataset.lang === currentLang);
+                if (!activeItem) return;
+
+                // 添加 active 类（红色边框高亮）
+                activeItem.classList.add('active');
+
+                // 将当前语言国旗移到容器第一位
+                container.prepend(activeItem);
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                reorderFlags(document.getElementById('header-flags-wrap'));
+                reorderFlags(document.getElementById('mobile-lang-flags'));
+            });
+        })();
+    </script>
+
+
+    <!-- TranslatePress handles all language switching -->
+
+<template id="tp-language" data-tp-language="zh_CN"></template><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/sejong-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+<nav
+    class="trp-language-switcher trp-floating-switcher trp-ls-dropdown trp-switcher-position-bottom"
+    style="--bg:#ffffff;--bg-hover:#0000000d;--text:#143852;--text-hover:#1d2327;--border:1px solid #1438521a;--border-radius:8px 8px 0px 0px;--flag-radius:2px;--flag-size:18px;--aspect-ratio:4/3;--font-size:14px;--switcher-width:auto;--switcher-padding:10px 0;--transition-duration:0.2s;--bottom:0px;--right:10vw"
+    role="navigation"
+    aria-label="网站语言选择器"
+    data-no-translation
+>
+    
+            <div class="trp-language-switcher-inner">
+            <div class="trp-language-item trp-language-item__current" title="Chinese" role="button" tabindex="0" aria-expanded="false" aria-label="切换语言" aria-controls="trp-switcher-dropdown-list" data-no-translation><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/flags/4x3/zh_CN.svg" class="trp-flag-image" alt="" role="presentation" loading="lazy" decoding="async" width="18" height="14" /><span class="trp-language-item-name">Chinese</span></div>
+            <div
+                class="trp-switcher-dropdown-list"
+                id="trp-switcher-dropdown-list"
+                role="group"
+                aria-label="可用语言"
+                hidden
+                inert
+            >
+                                    <a href="https://mediumturquoise-hummingbird-491885.hostingersite.com/ko/assets/images/product-meat.jpg/" class="trp-language-item" title="Korean" data-no-translation><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/flags/4x3/ko_KR.svg" class="trp-flag-image" alt="" role="presentation" loading="lazy" decoding="async" width="18" height="14" /><span class="trp-language-item-name">Korean</span></a>                                    <a href="https://mediumturquoise-hummingbird-491885.hostingersite.com/en/assets/images/product-meat.jpg/" class="trp-language-item" title="English" data-no-translation><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/flags/4x3/en_US.svg" class="trp-flag-image" alt="" role="presentation" loading="lazy" decoding="async" width="18" height="14" /><span class="trp-language-item-name">English</span></a>                                    <a href="https://mediumturquoise-hummingbird-491885.hostingersite.com/ja/assets/images/product-meat.jpg/" class="trp-language-item" title="Japanese" data-no-translation><img src="https://mediumturquoise-hummingbird-491885.hostingersite.com/wp-content/plugins/translatepress-multilingual/assets/flags/4x3/ja.svg" class="trp-flag-image" alt="" role="presentation" loading="lazy" decoding="async" width="18" height="14" /><span class="trp-language-item-name">Japanese</span></a>                            </div>
+        </div>
+
+    </nav>
+
+</body>
+</html>
